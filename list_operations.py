@@ -208,20 +208,26 @@ def custom_insert(input_list, index, value):
     like input_list.insert(index, value), should insert (not replace) the value
     at the specified index of the input list and return nothing
     """
-    # custom_append(input_list, 0)
-    # length = custom_len(input_list)
-    # for i in range(index + 1, length - 1):
-    #     input_list[i + 1] = input_list[i]
-    # input_list[index] = value 
-    # pass
-
+    custom_append(input_list, 0)
+    length = custom_len(input_list)
+    counter = -1
+    for i in range(length - index):
+        input_list[counter] = input_list[counter - 1]
+        counter = counter - 1
+    input_list[index] = value
+    pass
 
 def custom_remove(input_list, value):
     """
     like input_list.remove(value), should remove the first item of the
     value specified and return nothing
     """
-
+    counter = -1
+    for num in input_list:
+        counter += 1
+        if num == value:
+            del input_list[counter]
+            break
     pass
 
 
